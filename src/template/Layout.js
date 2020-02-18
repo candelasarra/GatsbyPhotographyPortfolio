@@ -10,11 +10,12 @@ export default ({ data }) => {
         display: "flex",
         minHeight: "100vh",
         backgroundColor: "#ecebeb",
-        padding: "15px",
       }}
+      className="maindiv"
     >
-      <SideBar />
-      <Pages images={slugContent.metafields} />
+      <SideBar>
+        <Pages images={slugContent.metafields} />
+      </SideBar>
     </div>
   )
 }

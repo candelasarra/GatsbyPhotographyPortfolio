@@ -1,5 +1,4 @@
 import React from "react"
-import SideBar from "../components/SideBar"
 
 const Pages = images => {
   const fewImages = images.images.length < 4 ? true : false
@@ -8,7 +7,7 @@ const Pages = images => {
       style={{
         columnCount: fewImages ? 1 : 2,
         columnGap: 5,
-        flex: 4,
+        margin: 10,
       }}
     >
       {images.images.map(image => {
@@ -20,7 +19,7 @@ const Pages = images => {
               margin: fewImages ? "auto" : "unset",
               padding: 5,
               //   margin: "0 0 2px",
-              width: fewImages ? "70%" : "100%",
+              width: fewImages ? "90%" : "100%",
               boxSizing: "border-box",
             }}
           />

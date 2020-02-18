@@ -1,7 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-const SideBar = () => {
+import { ListItem, ListItemText } from "@material-ui/core"
+import ResponsiveDrawer from "./ResponsiveDrawer"
+const SideBar = ({ children }) => {
   const { author } = useSiteMetadata()
 
   const data = useStaticQuery(graphql`
@@ -13,31 +15,30 @@ const SideBar = () => {
       }
     }
   `)
-
+  const sideBarLinks = data.allCosmicjsImages.nodes.map(node => {
+    return (
+      <ListItem style={{ paddingTop: 0, paddingBottom: 0 }}>
+        <Link
+          to={`/${node[`slug`]}`}
+          style={{
+            textDecoration: "none",
+            color: "grey",
+            marginTop: "7px",
+            marginBottom: "7px",
+            fontSize: "large",
+            marginLeft: 25,
+          }}
+          activeStyle={{ color: "black" }}
+        >
+          <ListItemText primary={node[`slug`]} />
+        </Link>
+      </ListItem>
+    )
+  })
   return (
-    <div style={{ flex: 1 }}>
-      <h1 style={{ marginLeft: "10%", color: "#565656" }}>{author}</h1>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        {data.allCosmicjsImages.nodes.map(node => {
-          return (
-            <Link
-              to={`/${node[`slug`]}`}
-              style={{
-                textDecoration: "none",
-                color: "grey",
-                marginTop: "7px",
-                marginBottom: "7px",
-                fontSize: "large",
-                marginLeft: "10%",
-              }}
-              activeStyle={{ color: "black" }}
-            >
-              {node[`slug`]}
-            </Link>
-          )
-        })}
-      </div>
-    </div>
+    <ResponsiveDrawer author={author} sideBarLinks={sideBarLinks}>
+      {children}
+    </ResponsiveDrawer>
   )
 }
 export default SideBar

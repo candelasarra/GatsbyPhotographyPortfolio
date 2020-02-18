@@ -11,6 +11,14 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-material-ui`,
+      options: {
+        stylesProvider: {
+          injectFirst: true,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-cosmicjs`,
       options: {
         bucketSlug: process.env.COSMIC_BUCKET_SLUG,
