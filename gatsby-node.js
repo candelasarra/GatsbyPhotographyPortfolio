@@ -2,9 +2,11 @@ exports.createPages = async function({ actions, graphql, reporter }) {
   const result = await graphql(
     `
       query {
-        allCosmicjsImages {
-          nodes {
-            slug
+        allContentfulPhotos {
+          edges {
+            node {
+              title
+            }
           }
         }
       }
@@ -13,12 +15,12 @@ exports.createPages = async function({ actions, graphql, reporter }) {
   if (result.errors) {
     reporter.panic("failed ro create pages", result.errors)
   }
-  result.data.allCosmicjsImages.nodes.forEach(edge => {
-    const slug = edge.slug
+  result.data.allContentfulPhotos.edges.forEach(edge => {
+    const title = edge.node.title
     actions.createPage({
-      path: `/${slug}`,
+      path: `/${title}`,
       component: require.resolve(`./src/template/Layout`),
-      context: { slug: slug },
+      context: { title: title },
     })
   })
 }

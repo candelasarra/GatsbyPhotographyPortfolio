@@ -3,7 +3,7 @@ import SideBar from "../components/SideBar"
 import { graphql } from "gatsby"
 import Pages from "./Pages"
 export default ({ data }) => {
-  const slugContent = data.allCosmicjsImages.nodes[0]
+  const slugContent = data.allContentfulPhotos.nodes[0]
   return (
     <div
       style={{
@@ -14,21 +14,21 @@ export default ({ data }) => {
       className="maindiv"
     >
       <SideBar>
-        <Pages images={slugContent.metafields} />
+        <Pages slugContent={slugContent} />
       </SideBar>
     </div>
   )
 }
 
 export const query = graphql`
-  query Images($slug: String!) {
-    allCosmicjsImages(filter: { slug: { eq: $slug } }) {
+  query Images($title: String!) {
+    allContentfulPhotos(filter: { title: { eq: $title } }) {
       nodes {
-        slug
-        content
-        metafields {
-          url
+        photo {
           title
+          file {
+            url
+          }
         }
       }
     }

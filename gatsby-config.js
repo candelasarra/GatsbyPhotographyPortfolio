@@ -19,14 +19,22 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-cosmicjs`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        bucketSlug: process.env.COSMIC_BUCKET_SLUG,
-        objectTypes: [`images`],
-        apiAccess: {
-          read_key: process.env.COSMIC_READ_KEY,
-        },
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        downloadLocal: true,
       },
     },
+    // {
+    //   resolve: `gatsby-source-cosmicjs`,
+    //   options: {
+    //     bucketSlug: process.env.COSMIC_BUCKET_SLUG,
+    //     objectTypes: [`images`],
+    //     apiAccess: {
+    //       read_key: process.env.COSMIC_READ_KEY,
+    //     },
+    //   },
+    // },
   ],
 }

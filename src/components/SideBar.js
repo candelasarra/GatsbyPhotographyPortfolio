@@ -8,18 +8,20 @@ const SideBar = ({ children }) => {
 
   const data = useStaticQuery(graphql`
     query {
-      allCosmicjsImages {
-        nodes {
-          slug
+      allContentfulPhotos {
+        edges {
+          node {
+            title
+          }
         }
       }
     }
   `)
-  const sideBarLinks = data.allCosmicjsImages.nodes.map(node => {
+  const sideBarLinks = data.allContentfulPhotos.edges.map(node => {
     return (
       <ListItem style={{ paddingTop: 0, paddingBottom: 0 }}>
         <Link
-          to={`/${node[`slug`]}`}
+          to={`/${node.node.title}`}
           style={{
             textDecoration: "none",
             color: "grey",
@@ -30,7 +32,7 @@ const SideBar = ({ children }) => {
           }}
           activeStyle={{ color: "black" }}
         >
-          <ListItemText primary={node[`slug`]} />
+          <ListItemText primary={node.node.title} />
         </Link>
       </ListItem>
     )

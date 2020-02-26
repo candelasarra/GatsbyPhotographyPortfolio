@@ -1,7 +1,8 @@
 import React from "react"
 
-const Pages = images => {
-  const fewImages = images.images.length < 4 ? true : false
+const Pages = slugContent => {
+  const fewImages = slugContent.slugContent.photo.length < 4 ? true : false
+  console.log(slugContent.slugContent)
   return (
     <div
       style={{
@@ -10,10 +11,10 @@ const Pages = images => {
         margin: 10,
       }}
     >
-      {images.images.map(image => {
+      {slugContent.slugContent.photo.map(image => {
         return (
           <img
-            src={image.url}
+            src={image.file.url}
             style={{
               display: fewImages ? "block" : "inline-block",
               margin: fewImages ? "auto" : "unset",
