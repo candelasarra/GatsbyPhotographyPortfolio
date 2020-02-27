@@ -22,11 +22,17 @@ const useStyles = makeStyles(theme => ({
     },
   },
   menuButton: {
-    alignSelf: "flex-start",
-    marginLeft: 5,
-    marginRight: theme.spacing(2),
+    marginLeft: 10,
+    marginTop: 10,
+    position: "fixed",
     [theme.breakpoints.up("lg")]: {
       display: "none",
+    },
+  },
+  holdsMenuButton: {
+    width: "6%",
+    [theme.breakpoints.up("lg")]: {
+      width: "unset",
     },
   },
   drawerPaper: {
@@ -72,15 +78,17 @@ function ResponsiveDrawer(props) {
 
   return (
     <div className={classes.root}>
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        edge="start"
-        onClick={handleDrawerToggle}
-        className={classes.menuButton}
-      >
-        <MenuIcon />
-      </IconButton>
+      <div className={classes.holdsMenuButton}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          className={classes.menuButton}
+        >
+          <MenuIcon />
+        </IconButton>
+      </div>
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden lgUp implementation="css">

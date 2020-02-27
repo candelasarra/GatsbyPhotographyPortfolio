@@ -2,17 +2,39 @@ import React from "react"
 import "../styles/global.css"
 import Img from "gatsby-image"
 import { graphql, Link } from "gatsby"
+import { Typography } from "@material-ui/core"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 export default ({ data }) => {
+  const { author } = useSiteMetadata()
   const linkTo = data.allContentfulPhotos.edges[0].node.title
   console.log(data)
   return (
     <div style={{ backgroundColor: "lightgrey" }}>
+      <Img
+        fluid={
+          data.allContentfulHomePage.nodes[0].mainImage.localFile
+            .childImageSharp.fluid
+        }
+        style={{ height: "100vh", overflow: "hidden" }}
+      />
+
       <Link to={`/${linkTo}`}>
-        <Img
-          fluid={data.allContentfulHomePage.nodes[0].mainImage.fluid}
-          style={{ height: "100vh", overflow: "hidden", cursor: "auto" }}
-        />
+        <div
+          style={{
+            position: "absolute",
+            color: "white",
+            top: "0",
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            cursor: "auto",
+          }}
+        >
+          <Typography variant="h1">{author}</Typography>
+        </div>
       </Link>
     </div>
   )
@@ -24,8 +46,12 @@ export const query = graphql`
       nodes {
         mainImage {
           title
-          fluid(maxWidth: 2500) {
-            ...GatsbyContentfulFluid
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 2500, grayscale: true) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
@@ -39,3 +65,6 @@ export const query = graphql`
     }
   }
 `
+// fluid(maxWidth: 2500, grayscale: true) {
+//   ...GatsbyContentfulFluid
+// }

@@ -10,6 +10,7 @@ module.exports = {
     author: "Vi Muzzi",
   },
   plugins: [
+    `gatsby-plugin-sharp`,
     { resolve: `gatsby-transformer-sharp` },
     {
       resolve: `gatsby-plugin-material-ui`,
