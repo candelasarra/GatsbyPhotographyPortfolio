@@ -1,7 +1,10 @@
 import React from "react"
+import Img from "gatsby-image"
 
 const Pages = slugContent => {
-  const fewImages = slugContent.slugContent.photo.length < 4 ? true : false
+  const windowWidth = window.innerWidth < 960
+  const fewImages =
+    slugContent.slugContent.photo.length < 4 || windowWidth ? true : false
   console.log(slugContent.slugContent)
   return (
     <div
@@ -11,18 +14,19 @@ const Pages = slugContent => {
         margin: 10,
       }}
     >
-      {slugContent.slugContent.photo.map(image => {
+      {slugContent.slugContent.photo.map((image, index) => {
         return (
-          <img
-            src={image.file.url}
+          <Img
+            fluid={image.fluid}
             style={{
               display: fewImages ? "block" : "inline-block",
               margin: fewImages ? "auto" : "unset",
               padding: 5,
-              //   margin: "0 0 2px",
+              margin: "0 0 2px",
               width: fewImages ? "90%" : "100%",
               boxSizing: "border-box",
             }}
+            key={image.title + index}
           />
         )
       })}

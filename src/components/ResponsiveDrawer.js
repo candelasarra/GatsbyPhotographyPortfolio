@@ -1,11 +1,9 @@
 import React from "react"
-import AppBar from "@material-ui/core/AppBar"
 import Drawer from "@material-ui/core/Drawer"
 import Hidden from "@material-ui/core/Hidden"
 import IconButton from "@material-ui/core/IconButton"
 import List from "@material-ui/core/List"
 import MenuIcon from "@material-ui/icons/Menu"
-import Toolbar from "@material-ui/core/Toolbar"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 

@@ -26,8 +26,8 @@ export const query = graphql`
       nodes {
         photo {
           title
-          file {
-            url
+          fluid(maxWidth: 1000) {
+            ...GatsbyContentfulFluid
           }
         }
       }
