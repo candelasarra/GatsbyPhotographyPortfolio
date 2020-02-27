@@ -15,12 +15,12 @@ const Pages = slugContent => {
       }}
     >
       {slugContent.slugContent.photo.map((image, index) => {
+        console.log(image.title + index)
         return (
           <Img
             fluid={image.fluid}
             style={{
               display: fewImages ? "block" : "inline-block",
-              margin: fewImages ? "auto" : "unset",
               padding: 5,
               margin: "0 0 2px",
               width: fewImages ? "90%" : "100%",

@@ -6,6 +6,7 @@ import List from "@material-ui/core/List"
 import MenuIcon from "@material-ui/icons/Menu"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
+import { Link } from "gatsby"
 
 const drawerWidth = 240
 
@@ -52,17 +53,19 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Typography
-        variant="h4"
-        style={{
-          marginLeft: 30,
-          marginTop: 50,
-          marginBottom: 50,
-          color: "#565656",
-        }}
-      >
-        {props.author}
-      </Typography>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <Typography
+          variant="h4"
+          style={{
+            marginLeft: 30,
+            marginTop: 50,
+            marginBottom: 50,
+            color: "#565656",
+          }}
+        >
+          {props.author}
+        </Typography>
+      </Link>
       <List>{props.sideBarLinks}</List>
     </div>
   )

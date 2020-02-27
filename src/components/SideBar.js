@@ -17,14 +17,14 @@ const SideBar = ({ children }) => {
       }
     }
   `)
-  const sideBarLinks = data.allContentfulPhotos.edges.map((node, index) => {
+  const sideBarLinks = data.allContentfulPhotos.edges.map((edge, index) => {
     return (
       <ListItem
         style={{ paddingTop: 0, paddingBottom: 0 }}
-        key={node.node.title + index}
+        key={edge.node.title + index}
       >
         <Link
-          to={`/${node.node.title}`}
+          to={`/${edge.node.title}`}
           style={{
             textDecoration: "none",
             color: "grey",
@@ -35,7 +35,7 @@ const SideBar = ({ children }) => {
           }}
           activeStyle={{ color: "black" }}
         >
-          <ListItemText primary={node.node.title} />
+          <ListItemText primary={edge.node.title} />
         </Link>
       </ListItem>
     )
