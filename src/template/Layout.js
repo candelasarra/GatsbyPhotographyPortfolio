@@ -3,7 +3,7 @@ import SideBar from "../components/SideBar"
 import { graphql } from "gatsby"
 import Pages from "./Pages"
 export default ({ data }) => {
-  const slugContent = data.allContentfulPhotos.nodes[0]
+  const slugContent = data.allContentfulPhotos
   return (
     <div
       style={{
@@ -24,7 +24,11 @@ export const query = graphql`
   query Images($title: String!) {
     allContentfulPhotos(filter: { title: { eq: $title } }) {
       nodes {
+        childContentfulPhotosTopicDescriptionTextNode {
+          topicDescription
+        }
         photo {
+          description
           title
           fluid(maxWidth: 1000) {
             ...GatsbyContentfulFluid
