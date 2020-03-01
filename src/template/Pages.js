@@ -2,6 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { Typography } from "@material-ui/core"
+import DialogPhoto from "../components/DialogPhoto"
 
 const Pages = ({ slugContent }) => {
   const windowWidth = window.innerWidth < 960
@@ -30,13 +31,16 @@ const Pages = ({ slugContent }) => {
         }}
       >
         {images.map((image, index) => {
+          const hasLinkUrl = image.description === ""
           console.log(image.title + index)
-          return image.description === "" ? (
-            <Img
-              fluid={image.fluid}
-              style={imageStyle}
-              key={image.title + index}
-            />
+          return hasLinkUrl ? (
+            <DialogPhoto image={image.fluid}>
+              <Img
+                fluid={image.fluid}
+                style={imageStyle}
+                key={image.title + index}
+              />
+            </DialogPhoto>
           ) : (
             <Link to={image.description}>
               <Img
