@@ -28,7 +28,7 @@ const Pages = ({ slugContent }) => {
     <div>
       <div
         style={{
-          height: "50px",
+          height: "170px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

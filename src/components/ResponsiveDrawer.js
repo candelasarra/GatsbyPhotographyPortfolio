@@ -60,15 +60,23 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Link
-        to="/"
+      <div
         style={{
-          textDecoration: "none",
+          height: 170,
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        {/* <Typography
+        <Link
+          to="/"
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          {/* <Typography
           variant="h4"
           style={{
             marginLeft: 30,
@@ -79,9 +87,10 @@ function ResponsiveDrawer(props) {
         >
           {props.author}
         </Typography> */}
-        <img src={signature} style={{ width: "50%", padding: "15px" }} />
-      </Link>
-      <List>{props.sideBarLinks}</List>
+          <img src={signature} style={{ width: "50%", padding: "15px" }} />
+        </Link>
+      </div>
+      <List style={{ marginTop: "15px" }}>{props.sideBarLinks}</List>
     </div>
   )
 
