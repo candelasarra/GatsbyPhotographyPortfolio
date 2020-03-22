@@ -22,9 +22,18 @@ const Pages = ({ slugContent }) => {
 
   return (
     <div>
-      {description.topicDescription && (
-        <Typography>{description.topicDescription}</Typography>
-      )}
+      <div
+        style={{
+          height: "50px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        {description.topicDescription && (
+          <Typography>{description.topicDescription}</Typography>
+        )}
+      </div>
       <div
         style={{
           columnCount: fewImages ? 1 : 2,
@@ -37,19 +46,23 @@ const Pages = ({ slugContent }) => {
           console.log(image.title + index)
           return hasLinkUrl ? (
             <DialogPhoto image={image.fluid}>
-              <Img
-                fluid={image.fluid}
-                style={imageStyle}
-                key={image.title + index}
-              />
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Img
+                  fluid={image.fluid}
+                  style={imageStyle}
+                  key={image.title + index}
+                />
+              </div>
             </DialogPhoto>
           ) : (
             <Link to={image.description}>
-              <Img
-                fluid={image.fluid}
-                style={imageStyle}
-                key={image.title + index}
-              />
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <Img
+                  fluid={image.fluid}
+                  style={imageStyle}
+                  key={image.title + index}
+                />
+              </div>
             </Link>
           )
         })}

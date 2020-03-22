@@ -2,6 +2,13 @@ import React from "react"
 import SideBar from "../components/SideBar"
 import { graphql } from "gatsby"
 import Pages from "./Pages"
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: `'Montserrat'`,
+  },
+})
 export default ({ data }) => {
   const slugContent = data.allContentfulPhotos
   return (
@@ -13,9 +20,11 @@ export default ({ data }) => {
       }}
       className="maindiv"
     >
-      <SideBar>
-        <Pages slugContent={slugContent} />
-      </SideBar>
+      <ThemeProvider theme={theme}>
+        <SideBar>
+          <Pages slugContent={slugContent} />
+        </SideBar>
+      </ThemeProvider>
     </div>
   )
 }

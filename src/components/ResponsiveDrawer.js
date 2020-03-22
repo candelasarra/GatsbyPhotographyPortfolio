@@ -7,6 +7,7 @@ import MenuIcon from "@material-ui/icons/Menu"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import { Link } from "gatsby"
+import signature from "../images/visignature.png"
 
 const drawerWidth = 240
 
@@ -59,8 +60,15 @@ function ResponsiveDrawer(props) {
   const drawer = (
     <div>
       <div className={classes.toolbar} />
-      <Link to="/" style={{ textDecoration: "none" }}>
-        <Typography
+      <Link
+        to="/"
+        style={{
+          textDecoration: "none",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        {/* <Typography
           variant="h4"
           style={{
             marginLeft: 30,
@@ -70,7 +78,8 @@ function ResponsiveDrawer(props) {
           }}
         >
           {props.author}
-        </Typography>
+        </Typography> */}
+        <img src={signature} style={{ width: "50%", padding: "15px" }} />
       </Link>
       <List>{props.sideBarLinks}</List>
     </div>

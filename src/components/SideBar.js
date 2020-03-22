@@ -3,6 +3,8 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { ListItem, ListItemText } from "@material-ui/core"
 import ResponsiveDrawer from "./ResponsiveDrawer"
+import { withStyles } from "@material-ui/core/styles"
+
 const SideBar = ({ children }) => {
   const { author } = useSiteMetadata()
 

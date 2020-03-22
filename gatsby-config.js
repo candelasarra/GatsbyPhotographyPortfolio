@@ -12,6 +12,14 @@ module.exports = {
     author: "Vi Muzzi",
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Montserrat"],
+        },
+      },
+    },
     `gatsby-plugin-sharp`,
     { resolve: `gatsby-transformer-sharp` },
     {
