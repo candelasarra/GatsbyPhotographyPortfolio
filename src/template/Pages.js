@@ -19,6 +19,10 @@ const Pages = ({ slugContent }) => {
     width: fewImages ? "90%" : "100%",
     boxSizing: "border-box",
   }
+  const styleFewImages = {
+    display: "flex",
+    justifyContent: "center",
+  }
 
   return (
     <div>
@@ -46,7 +50,13 @@ const Pages = ({ slugContent }) => {
           console.log(image.title + index)
           return hasLinkUrl ? (
             <DialogPhoto image={image.fluid}>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={
+                  fewImages
+                    ? { display: "flex", justifyContent: "center" }
+                    : null
+                }
+              >
                 <Img
                   fluid={image.fluid}
                   style={imageStyle}
@@ -56,7 +66,13 @@ const Pages = ({ slugContent }) => {
             </DialogPhoto>
           ) : (
             <Link to={image.description}>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={
+                  fewImages
+                    ? { display: "flex", justifyContent: "center" }
+                    : null
+                }
+              >
                 <Img
                   fluid={image.fluid}
                   style={imageStyle}
