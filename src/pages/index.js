@@ -29,6 +29,7 @@ export default ({ data }) => {
               .childImageSharp.fluid
           }
           style={{ height: "100vh", overflow: "hidden" }}
+          backgroundColor="true"
         />
 
         <Link to={`/${linkTo}`}>
@@ -62,7 +63,7 @@ export const query = graphql`
           localFile {
             childImageSharp {
               fluid(maxWidth: 2500, grayscale: true) {
-                ...GatsbyImageSharpFluid
+                ...GatsbyImageSharpFluid_tracedSVG
               }
             }
           }
