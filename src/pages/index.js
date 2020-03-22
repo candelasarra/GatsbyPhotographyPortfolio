@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import "../styles/global.css"
 import Img from "gatsby-image"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { Typography } from "@material-ui/core"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
@@ -32,7 +33,7 @@ export default ({ data }) => {
           backgroundColor="true"
         />
 
-        <Link to={`/${linkTo}`}>
+        <AniLink to={`/${linkTo}`} fade duration={0.5}>
           <div
             style={{
               position: "absolute",
@@ -48,7 +49,7 @@ export default ({ data }) => {
           >
             {loaded && <Typography variant="h1">{author}</Typography>}
           </div>
-        </Link>
+        </AniLink>
       </div>
     </ThemeProvider>
   )

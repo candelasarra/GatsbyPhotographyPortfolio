@@ -6,7 +6,7 @@ import List from "@material-ui/core/List"
 import MenuIcon from "@material-ui/icons/Menu"
 import Typography from "@material-ui/core/Typography"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
-import { Link } from "gatsby"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import signature from "../images/visignature.png"
 
 const drawerWidth = 240
@@ -68,13 +68,17 @@ function ResponsiveDrawer(props) {
           alignItems: "center",
         }}
       >
-        <Link
+        <AniLink
           to="/"
           style={{
             textDecoration: "none",
             display: "flex",
             justifyContent: "center",
           }}
+          cover
+          duration={1}
+          bg="#ecebeb"
+          direction="up"
         >
           {/* <Typography
           variant="h4"
@@ -88,7 +92,7 @@ function ResponsiveDrawer(props) {
           {props.author}
         </Typography> */}
           <img src={signature} style={{ width: "50%", padding: "15px" }} />
-        </Link>
+        </AniLink>
       </div>
       <List style={{ marginTop: "15px" }}>{props.sideBarLinks}</List>
     </div>

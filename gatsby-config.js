@@ -12,6 +12,7 @@ module.exports = {
     author: "Vi Muzzi",
   },
   plugins: [
+    `gatsby-plugin-transition-link`,
     {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
