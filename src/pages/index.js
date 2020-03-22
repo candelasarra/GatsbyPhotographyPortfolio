@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import "../styles/global.css"
 import Img from "gatsby-image"
 import { graphql, Link } from "gatsby"
@@ -8,14 +8,18 @@ import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: `'Montserrat'`,
+    fontFamily: `Montserrat`,
   },
 })
 
 export default ({ data }) => {
+  const [loaded, setLoaded] = useState(false)
   const { author } = useSiteMetadata()
   const linkTo = data.allContentfulPhotos.edges[0].node.title
   console.log(data)
+  useEffect(() => {
+    setLoaded(true)
+  }, [])
   return (
     <ThemeProvider theme={theme}>
       <div style={{ backgroundColor: "lightgrey" }}>
@@ -41,7 +45,7 @@ export default ({ data }) => {
               cursor: "auto",
             }}
           >
-            <Typography variant="h1">{author}</Typography>
+            {loaded && <Typography variant="h1">{author}</Typography>}
           </div>
         </Link>
       </div>
