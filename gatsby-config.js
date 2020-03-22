@@ -4,41 +4,29 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 require("dotenv").config({
-  path: `.env`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
-module.exports = {
-  siteMetadata: {
-    author: "Vi Muzzi",
-  },
-  plugins: [
-    `gatsby-plugin-sharp`,
-    { resolve: `gatsby-transformer-sharp` },
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        stylesProvider: {
-          injectFirst: true,
-        },
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: true,
-      },
-    },
-    // {
-    //   resolve: `gatsby-source-cosmicjs`,
-    //   options: {
-    //     bucketSlug: process.env.COSMIC_BUCKET_SLUG,
-    //     objectTypes: [`images`],
-    //     apiAccess: {
-    //       read_key: process.env.COSMIC_READ_KEY,
-    //     },
-    //   },
-    // },
-  ],
+export const siteMetadata = {
+  author: "Vi Muzzi",
 }
+export const plugins = [
+  `gatsby-plugin-sharp`,
+  { resolve: `gatsby-transformer-sharp` },
+  {
+    resolve: `gatsby-plugin-material-ui`,
+    options: {
+      stylesProvider: {
+        injectFirst: true,
+      },
+    },
+  },
+  {
+    resolve: `gatsby-source-contentful`,
+    options: {
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      downloadLocal: true,
+    },
+  },
+]
