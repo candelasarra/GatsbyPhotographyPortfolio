@@ -1,11 +1,13 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
 import { Link } from "gatsby"
 import { Typography } from "@material-ui/core"
 import DialogPhoto from "../components/DialogPhoto"
+import useWindowSize from "../hooks/useWindowSize"
 
 const Pages = ({ slugContent }) => {
-  const windowWidth = window.innerWidth < 960
+  const windowSize = useWindowSize()
+  const windowWidth = windowSize.innerWidth < 960
   const images = slugContent.nodes[0].photo
   const description =
     slugContent.nodes[0].childContentfulPhotosTopicDescriptionTextNode
@@ -17,7 +19,7 @@ const Pages = ({ slugContent }) => {
     width: fewImages ? "90%" : "100%",
     boxSizing: "border-box",
   }
-  console.log(slugContent)
+
   return (
     <div>
       {description.topicDescription && (
