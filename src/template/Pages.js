@@ -18,6 +18,7 @@ const Pages = ({ slugContent }) => {
     margin: "0 0 2px",
     width: fewImages ? "90%" : "100%",
     boxSizing: "border-box",
+    cursor: "pointer",
   }
   const styleFewImages = {
     display: "flex",
