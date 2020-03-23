@@ -48,7 +48,7 @@ const Pages = ({ slugContent }) => {
       >
         {images.map((image, index) => {
           const hasLinkUrl = image.description === ""
-          console.log(image.title + index)
+
           return hasLinkUrl ? (
             <DialogPhoto image={image.fluid}>
               <div

@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import signature from "../images/visignature.png"
-import { Link } from "gatsby"
 
 const drawerWidth = 240
 
@@ -70,19 +69,19 @@ function ResponsiveDrawer(props) {
         }}
         onClick={() => (mobileOpen ? setMobileOpen(!mobileOpen) : null)}
       >
-        {/* <AniLink
+        <AniLink
           to="/"
-          style={{
-            textDecoration: "none",
-            display: "flex",
-            justifyContent: "center",
-          }}
+          // style={{
+          //   textDecoration: "none",
+          //   display: "flex",
+          //   justifyContent: "center",
+          // }}
           cover
-          duration={1.4}
+          duration={1}
           bg="#ecebeb"
           direction="up"
-        > */}
-        {/* <Typography
+        >
+          {/* <Typography
           variant="h4"
           style={{
             marginLeft: 30,
@@ -93,10 +92,8 @@ function ResponsiveDrawer(props) {
         >
           {props.author}
         </Typography> */}
-        <Link to="/">
           <img src={signature} style={{ width: "50%", padding: "15px" }} />
-        </Link>
-        {/* </AniLink> */}
+        </AniLink>
       </div>
       <List style={{ marginTop: "15px" }}>{props.sideBarLinks}</List>
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import "../styles/global.css"
 import Img from "gatsby-image"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import { Typography } from "@material-ui/core"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
@@ -17,7 +17,6 @@ export default ({ data }) => {
   const [loaded, setLoaded] = useState(false)
   const { author } = useSiteMetadata()
   const linkTo = data.allContentfulPhotos.edges[0].node.title
-  console.log(data)
   useEffect(() => {
     setLoaded(true)
   }, [])
@@ -33,7 +32,7 @@ export default ({ data }) => {
           backgroundColor="true"
         />
 
-        <AniLink to={`/${linkTo}`} fade duration={0.5}>
+        <AniLink to={`/${linkTo}`} fade duration={1}>
           <div
             style={{
               position: "absolute",
