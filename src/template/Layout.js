@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import SideBar from "../components/SideBar"
 import { graphql } from "gatsby"
 import Pages from "./Pages"
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import useWindowSize from "../hooks/useWindowSize"
 
 const theme = createMuiTheme({
   typography: {
@@ -10,7 +11,12 @@ const theme = createMuiTheme({
   },
 })
 export default ({ data }) => {
+  const windowDimension = useWindowSize()
+  const [windowSize, setWindowSize] = useState({})
   const slugContent = data.allContentfulPhotos
+  useEffect(() => {
+    setWindowSize(windowDimension)
+  }, [windowDimension])
   return (
     <div
       style={{
@@ -22,7 +28,7 @@ export default ({ data }) => {
     >
       <ThemeProvider theme={theme}>
         <SideBar>
-          <Pages slugContent={slugContent} />
+          <Pages slugContent={slugContent} windowSize={windowSize} />
         </SideBar>
       </ThemeProvider>
     </div>

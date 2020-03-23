@@ -5,8 +5,7 @@ import { Typography } from "@material-ui/core"
 import DialogPhoto from "../components/DialogPhoto"
 import useWindowSize from "../hooks/useWindowSize"
 
-const Pages = ({ slugContent }) => {
-  const windowSize = useWindowSize()
+const Pages = ({ slugContent, windowSize }) => {
   const [isMobileView, setIsMobileView] = useState(windowSize.windowWidth < 960)
 
   const images = slugContent.nodes[0].photo
