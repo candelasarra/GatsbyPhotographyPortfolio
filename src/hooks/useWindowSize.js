@@ -7,7 +7,6 @@ if (typeof window !== `undefined`) {
   defaultHeight = window.innerHeight
   defaultWidth = window.innerWidth
 }
-
 const useWindowSize = () => {
   const [dimensions, setDimensions] = useState({
     windowHeight: defaultHeight,

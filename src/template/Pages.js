@@ -7,7 +7,7 @@ import useWindowSize from "../hooks/useWindowSize"
 
 const Pages = ({ slugContent }) => {
   const windowSize = useWindowSize()
-  const windowWidth = windowSize.innerWidth < 960
+  const windowWidth = windowSize.windowWidth < 960
   const images = slugContent.nodes[0].photo
   const description =
     slugContent.nodes[0].childContentfulPhotosTopicDescriptionTextNode
@@ -24,7 +24,7 @@ const Pages = ({ slugContent }) => {
     display: "flex",
     justifyContent: "center",
   }
-
+  console.log(windowSize.windowHeight)
   return (
     <div>
       <div
