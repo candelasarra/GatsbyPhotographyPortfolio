@@ -92,7 +92,9 @@ function ResponsiveDrawer(props) {
         >
           {props.author}
         </Typography> */}
-          <img src={signature} style={{ width: "50%", padding: "15px" }} />
+          <div style={{ textAlign: "center" }}>
+            <img src={signature} style={{ width: "50%", padding: "15px" }} />
+          </div>
         </AniLink>
       </div>
       <List style={{ marginTop: "15px" }}>{props.sideBarLinks}</List>

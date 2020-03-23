@@ -55,8 +55,8 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-  query {
-    allContentfulHomePage {
+  query($title: String! = "mainImage") {
+    allContentfulHomePage(filter: { title: { eq: $title } }) {
       nodes {
         mainImage {
           title
