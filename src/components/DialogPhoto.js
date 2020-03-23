@@ -22,6 +22,7 @@ const StyledDialog = withStyles({
   },
   paper: {
     width: "60%",
+    height: "fit-content",
   },
 })(Dialog)
 

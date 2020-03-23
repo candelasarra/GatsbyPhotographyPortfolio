@@ -67,6 +67,7 @@ function ResponsiveDrawer(props) {
           justifyContent: "center",
           alignItems: "center",
         }}
+        onClick={() => (mobileOpen ? setMobileOpen(!mobileOpen) : null)}
       >
         <AniLink
           to="/"
@@ -76,7 +77,7 @@ function ResponsiveDrawer(props) {
             justifyContent: "center",
           }}
           cover
-          duration={1}
+          duration={1.4}
           bg="#ecebeb"
           direction="up"
         >
