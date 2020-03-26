@@ -4,7 +4,6 @@ import Hidden from "@material-ui/core/Hidden"
 import IconButton from "@material-ui/core/IconButton"
 import List from "@material-ui/core/List"
 import MenuIcon from "@material-ui/icons/Menu"
-import Typography from "@material-ui/core/Typography"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import signature from "../images/visignature.png"
@@ -54,7 +53,7 @@ function ResponsiveDrawer(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false)
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen)
+    setMobileOpen(state => !state)
   }
 
   const drawer = (
@@ -67,7 +66,7 @@ function ResponsiveDrawer(props) {
           justifyContent: "center",
           alignItems: "center",
         }}
-        onClick={() => (mobileOpen ? setMobileOpen(!mobileOpen) : null)}
+        onClick={() => (mobileOpen ? setMobileOpen(state => !state) : null)}
       >
         <AniLink
           to="/"
@@ -97,7 +96,16 @@ function ResponsiveDrawer(props) {
           </div>
         </AniLink>
       </div>
-      <List style={{ marginTop: "15px" }}>{props.sideBarLinks}</List>
+      <List
+        style={{
+          marginTop: "15px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        {props.sideBarLinks}
+      </List>
     </div>
   )
 

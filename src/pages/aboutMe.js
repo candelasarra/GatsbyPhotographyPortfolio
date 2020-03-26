@@ -10,6 +10,7 @@ const theme = createMuiTheme({
 })
 
 const aboutMe = ({ data }) => {
+  console.log(data)
   return (
     <ThemeProvider theme={theme}>
       <SideBar>
@@ -30,7 +31,7 @@ const aboutMe = ({ data }) => {
 export default aboutMe
 
 export const query = graphql`
-  query($title: String! = "aboutMe") {
+  query($title: String! = "aboutMeImage") {
     allContentfulHomePage(filter: { title: { eq: $title } }) {
       nodes {
         mainImage {

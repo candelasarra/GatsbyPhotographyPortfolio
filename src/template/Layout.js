@@ -46,7 +46,7 @@ export const query = graphql`
           description
           title
           fluid(maxWidth: 1000) {
-            ...GatsbyContentfulFluid
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }

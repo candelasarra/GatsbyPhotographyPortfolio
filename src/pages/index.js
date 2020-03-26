@@ -17,6 +17,8 @@ export default ({ data }) => {
   const [loaded, setLoaded] = useState(false)
   const { author } = useSiteMetadata()
   const linkTo = data.allContentfulPhotos.edges[0].node.title
+    .replace(/\s+/g, "-")
+    .toLowerCase()
   useEffect(() => {
     setLoaded(true)
   }, [])
@@ -41,12 +43,18 @@ export default ({ data }) => {
               width: "100%",
               height: "100%",
               display: "flex",
-              justifyContent: "center",
+              justifyContent: "flex-end",
               alignItems: "center",
               cursor: "auto",
+              flexDirection: "column",
             }}
           >
             {loaded && <Typography variant="h1">{author}</Typography>}
+            {loaded && (
+              <Typography variant="h4" style={{ marginBottom: "50px" }}>
+                photography
+              </Typography>
+            )}
           </div>
         </AniLink>
       </div>

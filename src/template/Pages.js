@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react"
 import Img from "gatsby-image"
-import { Link } from "gatsby"
-import { Typography } from "@material-ui/core"
+import { Typography, Fade } from "@material-ui/core"
 import DialogPhoto from "../components/DialogPhoto"
 import useWindowSize from "../hooks/useWindowSize"
 
 const Pages = ({ slugContent, windowSize }) => {
   const [isMobileView, setIsMobileView] = useState(windowSize.windowWidth < 960)
-
+  const [loadImages, setLoadImages] = useState(false)
   const images = slugContent.nodes[0].photo
   const description =
     slugContent.nodes[0].childContentfulPhotosTopicDescriptionTextNode
@@ -27,7 +26,12 @@ const Pages = ({ slugContent, windowSize }) => {
   useEffect(() => {
     setIsMobileView(windowSize.windowWidth < 960)
   }, [windowSize.windowWidth])
-  console.log(windowSize.windowHeight)
+  useEffect(() => {
+    setLoadImages(state => !state)
+    return () => setLoadImages(state => !state)
+  }, [])
+  console.log(loadImages)
+
   return (
     <div>
       <div
@@ -42,6 +46,7 @@ const Pages = ({ slugContent, windowSize }) => {
           <Typography>{description.topicDescription}</Typography>
         )}
       </div>
+
       <div
         style={{
           columnCount: fewImages ? 1 : 2,
@@ -52,7 +57,8 @@ const Pages = ({ slugContent, windowSize }) => {
         {images.map((image, index) => {
           const hasLinkUrl = image.description === ""
 
-          return hasLinkUrl ? (
+          // return hasLinkUrl ? (
+          return (
             <DialogPhoto image={image.fluid}>
               <div
                 style={
@@ -61,30 +67,39 @@ const Pages = ({ slugContent, windowSize }) => {
                     : null
                 }
               >
-                <Img
-                  fluid={image.fluid}
-                  style={imageStyle}
-                  key={image.title + index}
-                />
+                <Fade
+                  in={loadImages}
+                  //style={{ transformOrigin: "0 0 0" }}
+                  {...(loadImages ? { timeout: 2000 } : {})}
+                  //   direction="up"
+                >
+                  <Img
+                    fluid={image.fluid}
+                    style={imageStyle}
+                    key={image.title + index}
+                    backgroundColor="#ecebeb"
+                  />
+                </Fade>
               </div>
             </DialogPhoto>
-          ) : (
-            <Link to={image.description}>
-              <div
-                style={
-                  fewImages
-                    ? { display: "flex", justifyContent: "center" }
-                    : null
-                }
-              >
-                <Img
-                  fluid={image.fluid}
-                  style={imageStyle}
-                  key={image.title + index}
-                />
-              </div>
-            </Link>
           )
+          // ) : (
+          //   <Link to={image.description}>
+          //     <div
+          //       style={
+          //         fewImages
+          //           ? { display: "flex", justifyContent: "center" }
+          //           : null
+          //       }
+          //     >
+          //       <Img
+          //         fluid={image.fluid}
+          //         style={imageStyle}
+          //         key={image.title + index}
+          //       />
+          //     </div>
+          //   </Link>
+          // )
         })}
       </div>
     </div>

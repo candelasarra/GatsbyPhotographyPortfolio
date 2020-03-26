@@ -18,7 +18,7 @@ exports.createPages = async function({ actions, graphql, reporter }) {
   result.data.allContentfulPhotos.edges.forEach(edge => {
     const title = edge.node.title
     actions.createPage({
-      path: `/${title}`,
+      path: `/${title.replace(/\s+/g, "-").toLowerCase()}`,
       component: require.resolve(`./src/template/Layout`),
       context: { title: title },
     })
