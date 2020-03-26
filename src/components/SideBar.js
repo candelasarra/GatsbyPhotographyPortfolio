@@ -8,41 +8,41 @@ const SideBar = ({ children }) => {
   const { author } = useSiteMetadata()
   const data = useStaticQuery(graphql`
     query {
-      allContentfulPhotos {
-        edges {
-          node {
-            title
-          }
+      allContentfulList {
+        nodes {
+          sections
         }
       }
     }
   `)
-  const sideBarLinks = data.allContentfulPhotos.edges.map((edge, index) => {
-    const linkString = edge.node.title
-    return (
-      <ListItem
-        style={{ paddingTop: 0, paddingBottom: 0, width: "fit-content" }}
-        key={edge.node.title + index}
-      >
-        <Link
-          to={`/${linkString.replace(/\s+/g, "-").toLowerCase()}`}
-          style={{
-            textDecoration: "none",
-            color: "grey",
-            marginTop: "7px",
-            marginBottom: "7px",
-            fontSize: "large",
-            //    marginLeft: 25,
-          }}
-          activeStyle={{
-            color: "darkslategray",
-          }}
+  console.log(data)
+  const sideBarLinks = data.allContentfulList.nodes[0].sections.map(
+    (section, index) => {
+      return (
+        <ListItem
+          style={{ paddingTop: 0, paddingBottom: 0, width: "fit-content" }}
+          key={section + index}
         >
-          <ListItemText primary={edge.node.title} />
-        </Link>
-      </ListItem>
-    )
-  })
+          <Link
+            to={`/${section.replace(/\s+/g, "-").toLowerCase()}`}
+            style={{
+              textDecoration: "none",
+              color: "grey",
+              marginTop: "7px",
+              marginBottom: "7px",
+              fontSize: "large",
+              //    marginLeft: 25,
+            }}
+            activeStyle={{
+              color: "darkslategray",
+            }}
+          >
+            <ListItemText primary={section} />
+          </Link>
+        </ListItem>
+      )
+    }
+  )
   return (
     <ResponsiveDrawer author={author} sideBarLinks={sideBarLinks}>
       {children}
