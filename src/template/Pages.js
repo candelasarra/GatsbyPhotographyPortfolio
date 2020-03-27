@@ -33,7 +33,7 @@ const Pages = ({ slugContent, windowSize }) => {
   console.log(loadImages)
 
   return (
-    <div>
+    <div style={{ marginBottom: "150px" }}>
       <div
         style={{
           height: "170px",

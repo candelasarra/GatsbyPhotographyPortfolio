@@ -14,15 +14,27 @@ const aboutMe = ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <SideBar>
-        <Typography>hi</Typography>
-        <Img
-          fluid={
-            data.allContentfulHomePage.nodes[0].mainImage.localFile
-              .childImageSharp.fluid
-          }
-          style={{ height: "100vh", overflow: "hidden" }}
-          backgroundColor="true"
-        />
+        <div style={{ marginTop: 150, marginBottom: 150 }}>
+          <Typography
+            variant="h4"
+            style={{ marginLeft: 55, width: "fit-content" }}
+          >
+            {" "}
+            About Me
+          </Typography>
+          <div style={{ display: "flex", margin: 20 }}>
+            <div style={{ flex: 1, padding: 35 }}>
+              <Typography>
+                
+              </Typography>
+            </div>
+            <Img
+              fluid={data.allContentfulHomePage.nodes[0].mainImage.fluid}
+              style={{ width: "100%", flex: 1 }}
+              backgroundColor="true"
+            />
+          </div>
+        </div>
       </SideBar>
     </ThemeProvider>
   )
@@ -36,12 +48,8 @@ export const query = graphql`
       nodes {
         mainImage {
           title
-          localFile {
-            childImageSharp {
-              fluid(maxWidth: 2500, grayscale: true) {
-                ...GatsbyImageSharpFluid_tracedSVG
-              }
-            }
+          fluid(maxWidth: 700) {
+            ...GatsbyContentfulFluid_tracedSVG
           }
         }
       }
