@@ -7,6 +7,8 @@ import MenuIcon from "@material-ui/icons/Menu"
 import { makeStyles, useTheme } from "@material-ui/core/styles"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import signature from "../images/visignature.png"
+import { ListItem, ListItemText } from "@material-ui/core"
+import { Link } from "gatsby"
 
 const drawerWidth = 240
 
@@ -105,6 +107,27 @@ function ResponsiveDrawer(props) {
         }}
       >
         {props.sideBarLinks}
+        <ListItem
+          style={{ paddingTop: 0, paddingBottom: 0, width: "fit-content" }}
+        >
+          <Link
+            to="/aboutMe"
+            style={{
+              width: "fit-content",
+              textDecoration: "none",
+              color: "grey",
+              marginTop: "7px",
+              marginBottom: "7px",
+              fontSize: "large",
+              //    marginLeft: 25,
+            }}
+            activeStyle={{
+              color: "darkslategray",
+            }}
+          >
+            <ListItemText primary="About Me" />
+          </Link>
+        </ListItem>
       </List>
     </div>
   )

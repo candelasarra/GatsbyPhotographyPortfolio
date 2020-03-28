@@ -43,18 +43,27 @@ export default ({ data }) => {
               width: "100%",
               height: "100%",
               display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "center",
+              justifyContent: "flex-start",
+              alignItems: "flex-start",
               cursor: "auto",
               flexDirection: "column",
+              margin: "40px",
             }}
           >
-            {loaded && <Typography variant="h1">{author}</Typography>}
-            {loaded && (
-              <Typography variant="h4" style={{ marginBottom: "50px" }}>
-                photography
-              </Typography>
-            )}
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              {loaded && <Typography variant="h3">{author}</Typography>}
+              {loaded && (
+                <Typography variant="h5" style={{ marginBottom: "50px" }}>
+                  photography
+                </Typography>
+              )}
+            </div>
           </div>
         </AniLink>
       </div>

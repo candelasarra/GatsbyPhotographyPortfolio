@@ -40,6 +40,8 @@ const Pages = ({ slugContent, windowSize }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginLeft: "30px",
+          marginRight: "30px",
         }}
       >
         {description.topicDescription && (
