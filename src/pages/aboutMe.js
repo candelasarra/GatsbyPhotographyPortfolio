@@ -23,14 +23,14 @@ const aboutMe = ({ data }) => {
             About Me
           </Typography>
           <div style={{ display: "flex", margin: 20 }}>
-            <div style={{ flex: 1, padding: 35 }}>
-              <Typography>
-                
+            <div style={{ flex: 2, padding: 35 }}>
+              <Typography variant="subtitle1">
+                {data.allContentfulHomePage.nodes[0].aboutMeText.aboutMeText}
               </Typography>
             </div>
             <Img
               fluid={data.allContentfulHomePage.nodes[0].mainImage.fluid}
-              style={{ width: "100%", flex: 1 }}
+              style={{ width: "100%", flex: 3, borderRadius: "20px" }}
               backgroundColor="true"
             />
           </div>
@@ -51,6 +51,9 @@ export const query = graphql`
           fluid(maxWidth: 700) {
             ...GatsbyContentfulFluid_tracedSVG
           }
+        }
+        aboutMeText {
+          aboutMeText
         }
       }
     }
