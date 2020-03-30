@@ -41,7 +41,6 @@ export default ({ data }) => {
               color: "white",
               top: "0",
               width: "100%",
-              height: "100%",
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "flex-start",
