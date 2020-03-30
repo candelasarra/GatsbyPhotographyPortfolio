@@ -25,22 +25,23 @@ export default ({ data }) => {
   return (
     <ThemeProvider theme={theme}>
       <div style={{ backgroundColor: "lightgrey" }}>
-        <Img
-          fluid={
-            data.allContentfulHomePage.nodes[0].mainImage.localFile
-              .childImageSharp.fluid
-          }
-          style={{ height: "100vh", overflow: "hidden" }}
-          backgroundColor="true"
-        />
-
         <AniLink to={`/${linkTo}`} fade duration={1}>
+          <Img
+            fluid={
+              data.allContentfulHomePage.nodes[0].mainImage.localFile
+                .childImageSharp.fluid
+            }
+            style={{ height: "100vh", overflow: "hidden" }}
+            backgroundColor="true"
+          />
+
           <div
             style={{
               position: "absolute",
               color: "white",
               top: "0",
-              width: "100%",
+              width: "fit-content",
+
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "flex-start",
