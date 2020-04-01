@@ -9,7 +9,8 @@ import AniLink from "gatsby-plugin-transition-link/AniLink"
 import signature from "../images/visignature.png"
 import { ListItem, ListItemText } from "@material-ui/core"
 import { Link } from "gatsby"
-
+import InstagramIcon from "@material-ui/icons/Instagram"
+import FacebookIcon from "@material-ui/icons/Facebook"
 const drawerWidth = 240
 
 const useStyles = makeStyles(theme => ({
@@ -59,7 +60,7 @@ function ResponsiveDrawer(props) {
   }
 
   const drawer = (
-    <div>
+    <div style={{ heigth: "100%" }}>
       <div className={classes.toolbar} />
       <div
         style={{
@@ -129,6 +130,35 @@ function ResponsiveDrawer(props) {
           </Link>
         </ListItem>
       </List>
+      <div
+        style={{
+          position: "absolute",
+          display: "flex",
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
+          bottom: 20,
+        }}
+      >
+        <a
+          href="https://www.instagram.com/pindorama__origem/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconButton>
+            <InstagramIcon />
+          </IconButton>
+        </a>
+        <a
+          href="https://www.facebook.com/vitoria.muzzi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <IconButton>
+            <FacebookIcon />
+          </IconButton>
+        </a>
+      </div>
     </div>
   )
 
