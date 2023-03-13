@@ -59,7 +59,7 @@ export default ({ data }) => {
             >
               {loaded && <Typography variant="h3">{author}</Typography>}
               {loaded && (
-                <Typography variant="h5" style={{ marginBottom: "50px" }}>
+                <Typography variant="h5" style={{ marginBottom: "50px", textAlign: "center" }}>
                   photography portfolio example
                 </Typography>
               )}
