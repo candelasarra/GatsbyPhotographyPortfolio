@@ -9,7 +9,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    author: "Vi Muzzi",
+    author: "Candela",
   },
   plugins: [
     `gatsby-plugin-transition-link`,
