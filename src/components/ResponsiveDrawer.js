@@ -141,7 +141,7 @@ function ResponsiveDrawer(props) {
         }}
       >
         <a
-          href="https://www.instagram.com/pindorama__origem/"
+          href="https://candelasarra.com"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -150,7 +150,7 @@ function ResponsiveDrawer(props) {
           </IconButton>
         </a>
         <a
-          href="https://www.facebook.com/vitoria.muzzi"
+          href="https://candelasarra.com"
           target="_blank"
           rel="noopener noreferrer"
         >

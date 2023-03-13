@@ -21,7 +21,8 @@ const StyledDialog = withStyles({
     background: "rgba(0, 0, 0, 0.7490196078431373)",
   },
   paper: {
-    width: "60%",
+    width: "90%",
+    maxWidth: "1000px",
     height: "fit-content",
   },
 })(Dialog)
